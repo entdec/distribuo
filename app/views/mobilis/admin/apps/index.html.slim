@@ -1,0 +1,5 @@
+= clg.card do |card|
+  - card.slot :title
+    | Apps
+  - card.slot :footer
+  = clg.action_table('mobilis/apps', options: { exportable: true })

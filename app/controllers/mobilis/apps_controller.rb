@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
-class AppsController < ApplicationController
-  before_action :authenticate_user!, except: :manifest
+module Mobilis
+  class AppsController < ApplicationController
+    before_action :set_objects
 
-  def show; end
+    def index; end
 
-  def manifest; end
+    private
+
+    def set_objects
+      @apps = Mobilis.config.current_mobiliable.apps
+    end
+  end
 end

@@ -1,0 +1,7 @@
+= clg.card do |card|
+  - card.slot :title
+    | Release
+  = ui_form_for([:admin, :app, @release]) do |f|
+      = f.input :version
+      = f.input :notes
+      = f.input :build

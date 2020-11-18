@@ -1,5 +1,5 @@
 module Mobilis
-  class ApplicationController < ActionController::Base
+  class ApplicationController < Mobilis.config.base_controller.constantize
     protect_from_forgery with: :exception
   end
 end

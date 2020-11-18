@@ -39,3 +39,7 @@ OS (iOS/Android/Windows/MacOS/tvOS/Custom)
 - ipa/ipk
 - release notes
 -
+
+See:
+https://github.com/astro2linus/ipa-parser/blob/master/lib/ipa-parser.rb
+https://github.com/devunwired/apktools
