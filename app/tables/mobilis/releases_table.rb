@@ -8,6 +8,8 @@ module Mobilis
     column(:bundle_id)
     column(:version)
     column(:build_number, &:build_number)
+    column(:unique_downloads) { |row| row.downloads.distinct.count(:ip) }
+    column(:total_downloads) { |row| row.downloads.count }
     column(:created_at)
 
     filter(:version)
