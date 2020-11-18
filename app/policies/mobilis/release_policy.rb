@@ -5,7 +5,7 @@ module Mobilis
     def permitted_attributes
       return [] unless user.admin?
 
-      %i[app_id version notes build]
+      %i[id app_id version notes build build_number bundle_id]
     end
   end
 end

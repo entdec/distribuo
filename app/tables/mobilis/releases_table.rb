@@ -7,7 +7,7 @@ module Mobilis
     column(:release, &:position)
     column(:bundle_id)
     column(:version)
-    column(:notes)
+    column(:build_number, &:build_number)
     column(:created_at)
 
     filter(:version)

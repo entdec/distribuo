@@ -21,4 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rails', '~> 6.0.3', '>= 6.0.3.4'
   spec.add_dependency 'pg'
   spec.add_dependency 'acts_as_list', '~> 0.9'
+  spec.add_dependency 'app_parser'
+  spec.add_dependency 'image_processing'
 end

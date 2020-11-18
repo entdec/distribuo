@@ -13,8 +13,16 @@ module Mobilis
 
     def releases_index_context_menu
       @releases_index_context_menu ||= Electio::Menu.new(context: self) do |menu|
-        menu.item :releases_index, label: 'New', link: new_admin_app_release_path(@app) do |submenu|
+        menu.item :releases_index, label: @app.name, link: admin_app_path(@app) do |submenu|
+          submenu.item :releases_index, label: 'New', link: new_admin_app_release_path(@app)
         end
+      end
+      @releases_index_context_menu.for_context
+    end
+
+    def releases_edit_context_menu
+      @releases_index_context_menu ||= Electio::Menu.new(context: self) do |menu|
+        menu.item :releases_edit, label: @app.name, link: admin_app_path(@app)
       end
       @releases_index_context_menu.for_context
     end

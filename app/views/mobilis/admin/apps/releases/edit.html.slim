@@ -1,9 +1,10 @@
-= clg.card do |card|
+= clg.card(menu: releases_edit_context_menu) do |card|
   - card.slot :title
     | Release
-  = ui_form_for([:admin, :app, @release]) do |f|
+  = ui_form_for([:admin, @app, @release]) do |f|
+      = f.input :build
+      = f.input :notes
+      | The below fields will be automatically set, when you upload a build. You could choose to override them here.
       = f.input :version
       = f.input :build_number
       = f.input :bundle_id
-      = f.input :notes
-      = f.input :build
