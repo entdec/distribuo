@@ -1,8 +1,5 @@
 # Mobilis
-Short description and motivation.
-
-## Usage
-How to use my plugin.
+Easy to use in-house distribution of Mobile apps. For now Enterprise and Ad-Hoc apps only.
 
 ## Installation
 Add this line to your application's Gemfile:

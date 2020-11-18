@@ -3,6 +3,6 @@
     | App
   = ui_form_for([:admin, @app]) do |f|
       = f.input :name
-      = f.input :release_type
-      = f.input :operating_system
+      = f.input :release_type, collection: Mobilis::App::RELEASE_TYPES
+      = f.input :operating_system, collection: Mobilis::App::OPERATING_SYSTEMS
       = f.input :icon

@@ -25,7 +25,7 @@ module Mobilis
 
         def update
           authorize @release
-          respond @release.update(permitted_attributes(@release))
+          respond @release.update(permitted_attributes(@release), action: :index)
         end
 
         private

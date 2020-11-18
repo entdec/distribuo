@@ -10,6 +10,7 @@ module Mobilis
 
     def set_objects
       @apps = Mobilis.config.current_mobiliable.apps
+      @apps ||= Moblis::App.all
     end
   end
 end

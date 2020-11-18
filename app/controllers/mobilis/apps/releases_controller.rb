@@ -8,8 +8,12 @@ module Mobilis
       before_action :set_objects
 
       def download
-        @release.downloads.create(ip: request.ip)
-        send_data @release.build.download, filename: @release.build.filename.to_s, content_type: @release.build.content_type
+        if request.get?
+          @release.downloads.create(ip: request.ip)
+          send_data @release.build.download, filename: @release.build.filename.to_s, content_type: @release.build.content_type
+        else
+          head 204
+        end
       end
 
       def manifest
