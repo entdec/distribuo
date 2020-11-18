@@ -3,5 +3,7 @@
     | Release
   = ui_form_for([:admin, :app, @release]) do |f|
       = f.input :version
+      = f.input :build_number
+      = f.input :bundle_id
       = f.input :notes
       = f.input :build
