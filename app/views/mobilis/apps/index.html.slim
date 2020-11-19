@@ -8,7 +8,17 @@
         - layout.cell basis: "60%"
           = clg.tabbable_pane do |pane|
             - pane.slot :title
-              = app.operating_system
+              = app.name
+
+            = clg.details_view column_count: 3 do |details|
+              - if app.icon.attached?
+                - details.item :icon
+                  = image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [48, 48])))
+              - details.item :operating_system, label: t('.operating_system')
+                = app.operating_system
+              - details.item :release_type, label: t('.release_type')
+                = app.release_type
+
         - if app.latest_release
           - layout.cell basis: "40%"
             = clg.tabbable_pane modifier: "callout" do |pane|
@@ -18,7 +28,10 @@
                 = clg.details_view column_count: 3, modifier: "small-inverse" do |details|
                   - details.item :name, label: t('.version')
                     = app.latest_release.version
+                  - details.item :name, label: t('.build')
+                    = app.latest_release.build_number || '-'
                   - details.item :notes, label: t('.notes')
                     = app.latest_release.notes
                   - details.item :download, label: t('.download')
-                    = link_to(t('.download'), app.latest_release.download_url(self))
+                    = link_to(app.latest_release.download_url(self)) do
+                      i.fal.fa-cloud-download.fa-2x

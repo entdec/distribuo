@@ -1,6 +1,12 @@
 # Mobilis
 Easy to use in-house distribution of Mobile apps. For now Enterprise and Ad-Hoc apps only.
 
+## Features
+- Several app operating systems: iOS/Android/Windows/MacOS/tvOS
+- Several release types: Alpha/Beta/Enterprise/Production/Store/Custom
+- Icon extraction from apk/ipa
+- Build-information extraction from apk/ipa (build-number, version-string, bundle-id, etc)
+
 ## Installation
 Add this line to your application's Gemfile:
 
@@ -23,20 +29,3 @@ Contribution directions go here.
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-# info needed
-
-## app
-name
-icon
-release type (Alpha/Beta/Enterprise/Production/Store/Custom)
-OS (iOS/Android/Windows/MacOS/tvOS/Custom)
-
-## release
-- ipa/ipk
-- release notes
--
-
-See:
-https://github.com/astro2linus/ipa-parser/blob/master/lib/ipa-parser.rb
-https://github.com/devunwired/apktools
