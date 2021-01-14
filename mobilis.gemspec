@@ -23,4 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'acts_as_list'
   spec.add_dependency 'app_parser'
   spec.add_dependency 'image_processing'
+
+  spec.add_development_dependency 'auxilium', '~> 0.2'
 end
