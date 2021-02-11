@@ -27,7 +27,8 @@ module Mobilis
 
     def set_release_details
       build_upload = attachment_changes['build'].attachable
-      Tempfile.create([File.basename(build_upload.original_filename, File.extname(build_upload.original_filename)), File.extname(build_upload.original_filename)]) do |f|
+      Tempfile.create([File.basename(build_upload.original_filename, File.extname(build_upload.original_filename)),
+                       File.extname(build_upload.original_filename)]) do |f|
         f.write build_upload.read.force_encoding('utf-8')
         attachment_changes['build'].attachable.rewind
 

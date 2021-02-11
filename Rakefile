@@ -14,7 +14,7 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-APP_RAKEFILE = File.expand_path("test/dummy/Rakefile", __dir__)
+APP_RAKEFILE = File.expand_path('test/dummy/Rakefile', __dir__)
 load 'rails/tasks/engine.rake'
 
 load 'rails/tasks/statistics.rake'
@@ -34,4 +34,3 @@ task default: :test
 # Adds the Auxilium semver task
 spec = Gem::Specification.find_by_name 'auxilium'
 load "#{spec.gem_dir}/lib/tasks/semver.rake"
-

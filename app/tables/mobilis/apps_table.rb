@@ -4,7 +4,9 @@ module Mobilis
   class AppsTable < ApplicationTable
     model App
 
-    column(:icon) { |app| app.icon.attached? ? image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [20, 20]))) : '' }
+    column(:icon) do |app|
+      app.icon.attached? ? image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [20, 20]))) : ''
+    end
     column(:name)
     column(:release_type)
     column(:operating_system)

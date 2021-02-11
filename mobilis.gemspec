@@ -18,11 +18,11 @@ Gem::Specification.new do |spec|
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  spec.add_dependency 'rails', '~> 6'
-  spec.add_dependency 'pg'
   spec.add_dependency 'acts_as_list'
   spec.add_dependency 'app_parser'
   spec.add_dependency 'image_processing'
+  spec.add_dependency 'pg'
+  spec.add_dependency 'rails', '~> 6'
 
   spec.add_development_dependency 'auxilium', '~> 0.2'
 end

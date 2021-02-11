@@ -10,7 +10,8 @@ module Mobilis
       def download
         if request.get?
           @release.downloads.create(ip: request.ip)
-          send_data @release.build.download, filename: @release.build.filename.to_s, content_type: @release.build.content_type
+          send_data @release.build.download, filename: @release.build.filename.to_s,
+                                             content_type: @release.build.content_type
         else
           head 204
         end
