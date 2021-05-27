@@ -33,5 +33,5 @@
                   - details.item :notes, label: t('.notes')
                     = app.latest_release.notes
                   - details.item :download, label: t('.download')
-                    = link_to(app.latest_release.download_url(self), data: { turbolinks: false }) do
+                    = link_to(app.latest_release.download_url(self), data: { turbo: false }) do
                       i.fal.clg-fa-cloud-download.clg-fa-2x
