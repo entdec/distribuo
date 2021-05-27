@@ -14,12 +14,12 @@ module Mobilis
 
     def download_url(controller, from_manifest: false)
       if app.operating_system == 'ios' && from_manifest == false
-        url = controller.app_release_manifest_url(app_id: app.id, release_id: id, host: controller.request.host,
-                                                  protocol: controller.request.protocol, format: :plist)
+        url = controller.mobilis.app_release_manifest_url(app_id: app.id, release_id: id, host: controller.request.host,
+                                                          protocol: controller.request.protocol, format: :plist)
         "itms-services://?action=download-manifest&url=#{url}"
       else
-        controller.app_release_download_url(app, self, host: controller.request.host,
-                                                       protocol: controller.request.protocol)
+        controller.mobilis.app_release_download_url(app, self, host: controller.request.host,
+                                                               protocol: controller.request.protocol)
       end
     end
 
