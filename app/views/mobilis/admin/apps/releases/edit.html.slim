@@ -1,10 +1,17 @@
-= clg.card(menu: releases_edit_context_menu) do |card|
-  - card.slot :title
-    | Release
-  = ui_form_for([:admin, @app, @release]) do |f|
-      = f.input :build
-      = f.input :notes
-      | The below fields will be automatically set, when you upload a build. You could choose to override them here.
-      = f.input :version
-      = f.input :build_number
-      = f.input :bundle_id
+= sts.form_for([:admin, @app, @release]) do |f|
+  = sts.card(title: t('release')) do |card|
+    - card.action
+      = f.submit
+    .grid.grid-cols-12.gap-4
+        .col-span-12
+          = f.input :build, as: :file
+        .col-span-12
+          = f.input :notes
+        .col-span-12
+          | The below fields will be automatically set, when you upload a build. You could choose to override them here.
+        .col-span-12
+          = f.input :version
+        .col-span-12
+          = f.input :build_number
+        .col-span-12
+          = f.input :bundle_id

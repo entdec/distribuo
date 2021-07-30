@@ -1,5 +1,2 @@
-= clg.card do |card|
-  - card.slot :title
-    | Apps
-  - card.slot :footer
-  = clg.action_table('mobilis/apps', options: { exportable: true })
+= sts.card title: t('.apps'), icon: 'fad fa-laptop-mobile', content_padding: false, menu: mobilis_apps_menu do |card|
+  = sts.table :mobilis_apps

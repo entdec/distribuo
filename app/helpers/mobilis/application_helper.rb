@@ -1,30 +1,21 @@
 module Mobilis
   module ApplicationHelper
-    def app_edit_context_menu
-      @app_edit_context_menu ||= Electio::Menu.new(context: self) do |menu|
-        if @app&.persisted?
-          menu.item :app_edit, label: @app.name, link: '#' do |submenu|
-            submenu.item :releases, icon: 'box_open', link: admin_app_releases_path(@app) if @app&.persisted?
-          end
-        end
+    def mobilis_apps_menu
+      Satis::Menus::Builder.build(:apps) do |m|
+        m.item :create, icon: 'fal fa-plus', link: mobilis.new_admin_app_path
       end
-      @app_edit_context_menu.for_context
     end
 
-    def releases_index_context_menu
-      @releases_index_context_menu ||= Electio::Menu.new(context: self) do |menu|
-        menu.item :releases_index, label: @app.name, link: admin_app_path(@app) do |submenu|
-          submenu.item :releases_index, label: 'New', link: new_admin_app_release_path(@app)
-        end
+    def mobilis_app_menu
+      Satis::Menus::Builder.build(:app) do |m|
+        m.item :releases, icon: 'box_open', link: admin_app_releases_path(@app) if @app&.persisted?
       end
-      @releases_index_context_menu.for_context
     end
 
-    def releases_edit_context_menu
-      @releases_index_context_menu ||= Electio::Menu.new(context: self) do |menu|
-        menu.item :releases_edit, label: @app.name, link: admin_app_path(@app)
+    def mobilis_app_releases_menu
+      Satis::Menus::Builder.build(:app_releases) do |m|
+        m.item :new, label: 'New', link: new_admin_app_release_path(@app)
       end
-      @releases_index_context_menu.for_context
     end
 
     def method_missing(method, *args, &block)

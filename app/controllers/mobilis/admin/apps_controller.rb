@@ -13,7 +13,8 @@ module Mobilis
 
       def create
         authorize @app
-        respond(@app.update(permitted_attributes(@app)), action: :index)
+        @app.update(permitted_attributes(@app))
+        respond_with @app, action: :index
       end
 
       def show
@@ -24,7 +25,8 @@ module Mobilis
 
       def update
         authorize @app
-        respond @app.update(permitted_attributes(@app))
+        @app.update(permitted_attributes(@app))
+        respond_with @app, action: :index
       end
 
       private

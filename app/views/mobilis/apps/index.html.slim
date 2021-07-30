@@ -1,37 +1,28 @@
-= clg.card do |card|
-  - card.slot :title
-    | Apps
+= sts.card title: t('.apps') do |card|
+  .grid.grid-cols-12.gap-4
+    .col-span-12
+      - for app in @apps do
+        .grid.grid-cols-12.gap-4
+          .col-span-8
+            = app.name
 
-  = clg.layout modifier: "card" do |layout|
-    - for app in @apps do
-      - layout.row
-        - layout.cell basis: "60%"
-          = clg.tabbable_pane do |pane|
-            - pane.slot :title
-              = app.name
-
-            = clg.details_view column_count: 3 do |details|
-              - if app.icon.attached?
-                - details.item :icon
+            = sts.info class: "grid grid-cols-1 gap-4 sm:grid-cols-3" do |info|
+              = info.item :icon, class: "sm:col-span-1"
+                - if app.icon.attached?
                   = image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [48, 48])))
-              - details.item :operating_system, label: t('.operating_system')
-                = app.operating_system
-              - details.item :release_type, label: t('.release_type')
-                = app.release_type
 
-        - if app.latest_release
-          - layout.cell basis: "40%"
-            = clg.tabbable_pane modifier: "callout" do |pane|
-              - pane.slot :title
-                = t('.latest_release')
-              - pane.slot :tab, id: :build, title: 'Build'
-                = clg.details_view column_count: 3, modifier: "small-inverse" do |details|
-                  - details.item :name, label: t('.version')
-                    = app.latest_release.version
-                  - details.item :name, label: t('.build')
-                    = app.latest_release.build_number || '-'
-                  - details.item :notes, label: t('.notes')
-                    = app.latest_release.notes
-                  - details.item :download, label: t('.download')
-                    = link_to(app.latest_release.download_url(self), data: { turbo: false }) do
-                      i.fal.clg-fa-cloud-download.clg-fa-2x
+              = info.item :operating_system, content: app.operating_system, class: "sm:col-span-1"
+              = info.item :release_type, content: app.release_type, class: "sm:col-span-1"
+
+          - if app.latest_release
+            .col-span-4
+
+              = t('.latest_release')
+              = sts.info class: "grid grid-cols-1 gap-4 sm:grid-cols-3" do |info|
+
+                = info.item :version, content: app.latest_release.version, class: "sm:col-span-1"
+                = info.item :build_number, content: app.latest_release.build_number, class: "sm:col-span-1"
+                = info.item :notes, content: app.latest_release.notes, class: "sm:col-span-3"
+                = info.item :download, class: "sm:col-span-1"
+                  = link_to(app.latest_release.download_url(self), data: { turbo: false }) do
+                    i.fal.fa-cloud-arrow-down.fa-2x

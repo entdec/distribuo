@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mobilis
-  class AppPolicy < ApplicationPolicy
+  class AppPolicy < Mobilis::ApplicationPolicy
     def permitted_attributes
       return [] unless user.admin?
 

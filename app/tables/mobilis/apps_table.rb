@@ -2,7 +2,7 @@
 
 module Mobilis
   class AppsTable < ApplicationTable
-    model App
+    model Mobilis::App
 
     column(:icon) do |app|
       app.icon.attached? ? image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [20, 20]))) : ''
@@ -21,7 +21,7 @@ module Mobilis
     private
 
     def scope
-      @scope = policy_scope(App).all
+      @scope = App.all
       @scope
     end
   end

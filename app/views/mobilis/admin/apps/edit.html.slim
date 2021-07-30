@@ -1,10 +1,17 @@
-= clg.card(menu: app_edit_context_menu) do |card|
-  - card.slot :title
-    | App
-  = ui_form_for([:admin, @app]) do |f|
-      - if @app.icon.attached?
-        = image_tag(main_app.url_for(@app.icon.variant(resize_to_limit: [32, 32])))
-      = f.input :name
-      = f.input :release_type, collection: Mobilis::App::RELEASE_TYPES
-      = f.input :operating_system, collection: Mobilis::App::OPERATING_SYSTEMS
-      = f.input :icon
+= sts.form_for [:admin, @app] do |f|
+  = sts.card(title: t('.app'), menu: mobilis_app_menu, icon: 'fad fa-laptop-mobile') do |card|
+    - card.action
+      = f.submit
+
+    .grid.grid-cols-12.gap-4
+      .col-span-12
+        - if @app.icon.attached?
+          = image_tag(main_app.url_for(@app.icon.variant(resize_to_limit: [32, 32])))
+      .col-span-12
+        = f.input :name
+      .col-span-12
+        = f.input :release_type, collection: Mobilis::App::RELEASE_TYPES
+      .col-span-12
+        = f.input :operating_system, collection: Mobilis::App::OPERATING_SYSTEMS
+      .col-span-12
+        = f.input :icon, as: :file

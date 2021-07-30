@@ -31,7 +31,7 @@ module Mobilis
         private
 
         def set_objects
-          @app = policy_scope(App).find(params[:app_id]) if params[:app_id]
+          @app = Mobilis::App.find(params[:app_id]) if params[:app_id]
           @release = @app.releases.find(params[:id]) if params[:id]
           @release ||= @app.releases.new
         end

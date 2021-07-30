@@ -1,5 +1,6 @@
 require 'acts_as_list'
 require 'app_parser'
+require 'pundit'
 
 require 'mobilis/engine'
 require 'mobilis/configuration'

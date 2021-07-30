@@ -1,6 +1,2 @@
-= clg.card(menu: releases_index_context_menu) do |card|
-  - card.slot :title
-    | Releases
-  - card.slot :footer
-  = clg.action_table('mobilis/releases', options: { exportable: true }, url_params: {app_id: @app.id})
-
+= sts.card title: t('.releases'), icon: 'fad fa-ship', content_padding: false, menu: mobilis_app_releases_menu do |card|
+  = sts.table 'mobilis/releases', parameters: {app_id: @app.id}

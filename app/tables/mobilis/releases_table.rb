@@ -21,7 +21,7 @@ module Mobilis
     private
 
     def scope
-      @scope = policy_scope(Release).all
+      @scope = Release.all
       @scope = @scope.where(app_id: params[:app_id]) if params[:app_id]
       @scope
     end
