@@ -13,6 +13,7 @@ PATH
       app_parser
       image_processing
       pg
+      pundit
       rails (~> 6)
 
 GEM
@@ -78,7 +79,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    acts_as_list (1.0.3)
+    acts_as_list (1.0.4)
       activerecord (>= 4.2)
     app_parser (0.1.0)
       CFPropertyList
@@ -100,7 +101,7 @@ GEM
     image_processing (1.12.1)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
-    image_size (2.1.0)
+    image_size (2.1.1)
     loofah (2.10.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -114,15 +115,19 @@ GEM
       rake
     mini_magick (4.11.0)
     mini_mime (1.1.0)
+    mini_portile2 (2.5.3)
     minitest (5.14.3)
     nio4r (2.5.7)
-    nokogiri (1.11.7-arm64-darwin)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     pg (1.2.3)
     pngdefry (0.1.3)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pundit (2.1.0)
+      activesupport (>= 3.0.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)

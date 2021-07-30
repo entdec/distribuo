@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'app_parser'
   spec.add_dependency 'image_processing'
   spec.add_dependency 'pg'
+  spec.add_dependency 'pundit'
   spec.add_dependency 'rails', '~> 6'
 
   spec.add_development_dependency 'auxilium', '~> 0.2'
