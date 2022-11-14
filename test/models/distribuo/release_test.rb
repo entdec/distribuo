@@ -9,9 +9,12 @@ module Distribuo
       assert_equal '2.0.0', apk.version_string
       assert_equal 'android', apk.os
       assert_equal 'mobile.boxture.com.oms', apk.bundle_id
-      assert_equal 'res/mipmap-xxxhdpi-v4/ic_launcher.png', apk.icons.reject do |i|
-  i[:dimensions].nil?
-                                                            end.max { |i| i[:dimensions]&.first.to_i }[:file_name]
+
+      icon = apk.icons.reject do |i|
+        i[:dimensions].nil?
+      end.max { |i| i[:dimensions]&.first.to_i }[:file_name]
+
+      assert_equal 'res/mipmap-xxxhdpi-v4/ic_launcher.png', icon
     end
 
     test 'retrieves details from ipa' do
@@ -21,9 +24,12 @@ module Distribuo
       assert_equal '2.0.0', ipa.version_string
       assert_equal 'ios', ipa.os
       assert_equal 'com.boxture.mobile.OMS', ipa.bundle_id
-      assert_equal 'AppIcon76x76@2x~ipad.png', ipa.icons.reject do |i|
-  i[:dimensions].nil?
-                                               end.max { |i| i[:dimensions]&.first.to_i }[:file_name]
+
+      icon = ipa.icons.reject do |i|
+        i[:dimensions].nil?
+      end.max { |i| i[:dimensions]&.first.to_i }[:file_name]
+
+      assert_equal 'AppIcon76x76@2x~ipad.png', icon
     end
   end
 end
