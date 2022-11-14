@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class Mobilis::Test < ActiveSupport::TestCase
+class Distribuo::Test < ActiveSupport::TestCase
   test 'truth' do
-    assert_kind_of Module, Mobilis
+    assert_kind_of Module, Distribuo
   end
 end

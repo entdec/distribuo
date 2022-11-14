@@ -7,12 +7,12 @@ default: &default
 
 development:
   <<: *default
-  database: mobilis_development
+  database: distribuo_development
 
 test:
   <<: *default
-  database: mobilis_test
+  database: distribuo_test
 
 production:
   <<: *default
-  database: mobilis_production
+  database: distribuo_production

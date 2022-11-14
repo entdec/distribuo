@@ -1,6 +1,6 @@
-class CreateMobilisApps < ActiveRecord::Migration[6.0]
+class CreateDistribuoApps < ActiveRecord::Migration[6.0]
   def change
-    create_table :mobilis_apps, id: :uuid do |t|
+    create_table :distribuo_apps, id: :uuid do |t|
       t.string :name
       t.string :release_type
       t.string :operating_system

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20_201_118_143_143) do
   enable_extension 'plpgsql'
   enable_extension 'uuid-ossp'
 
-  create_table 'mobilis_apps', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+  create_table 'distribuo_apps', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
     t.string 'name'
     t.string 'release_type'
     t.string 'operating_system'
@@ -27,15 +27,15 @@ ActiveRecord::Schema.define(version: 20_201_118_143_143) do
     t.index %w[mobiliable_type mobiliable_id], name: 'index_app_on_mobiliable'
   end
 
-  create_table 'mobilis_downloads', force: :cascade do |t|
-    t.uuid 'mobilis_release_id', null: false
+  create_table 'distribuo_downloads', force: :cascade do |t|
+    t.uuid 'distribuo_release_id', null: false
     t.string 'ip'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['mobilis_release_id'], name: 'index_mobilis_downloads_on_mobilis_release_id'
+    t.index ['distribuo_release_id'], name: 'index_distribuo_downloads_on_distribuo_release_id'
   end
 
-  create_table 'mobilis_releases', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
+  create_table 'distribuo_releases', id: :uuid, default: -> { 'gen_random_uuid()' }, force: :cascade do |t|
     t.uuid 'app_id'
     t.integer 'position'
     t.string 'version'
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20_201_118_143_143) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'build_number'
-    t.index ['app_id'], name: 'index_mobilis_releases_on_app_id'
+    t.index ['app_id'], name: 'index_distribuo_releases_on_app_id'
   end
 
-  add_foreign_key 'mobilis_downloads', 'mobilis_releases'
+  add_foreign_key 'distribuo_downloads', 'distribuo_releases'
 end

@@ -1,4 +1,4 @@
-Mobilis::Engine.routes.draw do
+Distribuo::Engine.routes.draw do
   resources :apps do
     resources :releases, controller: 'apps/releases' do
       get 'download', action: :download

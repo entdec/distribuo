@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Mobilis::Engine => '/mobilis'
+  mount Distribuo::Engine => '/distribuo'
 end

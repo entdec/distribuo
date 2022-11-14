@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-git_source(:entdec) { |repo_name| "git@github.com:entdec/#{repo_name}.git" }
 
-# Declare your gem's dependencies in mobilis.gemspec.
+# Declare your gem's dependencies in distribuo.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec
@@ -17,4 +16,4 @@ gemspec
 
 gem 'pry'
 
-gem 'auxilium', '~> 3', entdec: 'auxilium'
+gem 'solargraph'
