@@ -12,6 +12,8 @@ module Distribuo
     column(:operating_system)
     column(:created_at)
 
+    table_views(to_s.underscore)
+
     filter(:platform)
 
     initial_order :created_at, :desc
