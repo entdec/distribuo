@@ -12,8 +12,6 @@ module Distribuo
     column(:total_downloads) { |row| row.downloads.count }
     column(:created_at)
 
-    table_views(to_s.underscore)
-
     filter(:version)
 
     initial_order :created_at, :desc
