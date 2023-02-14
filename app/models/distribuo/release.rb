@@ -3,7 +3,7 @@ module Distribuo
     has_one_attached :build
 
     belongs_to :app
-    has_many :downloads, class_name: 'Download', foreign_key: 'distribuo_release_id', dependent: :destroy
+    has_many :downloads, class_name: 'Download', foreign_key: 'mobilis_release_id', dependent: :destroy
 
     scope :administrable, -> { all }
 
