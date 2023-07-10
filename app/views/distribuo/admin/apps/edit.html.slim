@@ -1,5 +1,5 @@
 = sts.form_for [:admin, @app] do |f|
-  = sts.card(title: t('.app'), menu: distribuo_app_menu, icon: 'fad fa-laptop-mobile') do |card|
+  = sts.card(:distribuo_admin_apps, title: t('.app'), menu: distribuo_app_menu, icon: 'fad fa-laptop-mobile') do |card|
     - card.action
       = f.submit
 
