@@ -1,5 +1,5 @@
 = sts.form_for([:admin, @app, @release]) do |f|
-  = sts.card(title: t('release')) do |card|
+  = sts.card(:distribuo_admin_apps_releases, title: t('release')) do |card|
     - card.action
       = f.submit
     .grid.grid-cols-12.gap-4
