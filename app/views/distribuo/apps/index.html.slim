@@ -7,12 +7,12 @@
             = app.name
 
             = sts.info class: "grid grid-cols-1 gap-4 sm:grid-cols-3" do |info|
-              = info.item :icon, class: "sm:col-span-1"
+              = info.with_item :icon, class: "sm:col-span-1"
                 - if app.icon.attached?
                   = image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [48, 48])))
 
-              = info.item :operating_system, content: app.operating_system, class: "sm:col-span-1"
-              = info.item :release_type, content: app.release_type, class: "sm:col-span-1"
+              = info.with_item :operating_system, content: app.operating_system, class: "sm:col-span-1"
+              = info.with_item :release_type, content: app.release_type, class: "sm:col-span-1"
 
           - if app.latest_release
             .col-span-4
@@ -20,9 +20,9 @@
               = t('.latest_release')
               = sts.info class: "grid grid-cols-1 gap-4 sm:grid-cols-3" do |info|
 
-                = info.item :version, content: app.latest_release.version, class: "sm:col-span-1"
-                = info.item :build_number, content: app.latest_release.build_number, class: "sm:col-span-1"
-                = info.item :notes, content: app.latest_release.notes, class: "sm:col-span-3"
-                = info.item :download, class: "sm:col-span-1"
+                = info.with_item :version, content: app.latest_release.version, class: "sm:col-span-1"
+                = info.with_item :build_number, content: app.latest_release.build_number, class: "sm:col-span-1"
+                = info.with_item :notes, content: app.latest_release.notes, class: "sm:col-span-3"
+                = info.with_item :download, class: "sm:col-span-1"
                   = link_to(app.latest_release.download_url(self), data: { turbo: false }) do
                     i.fal.fa-cloud-arrow-down.fa-2x

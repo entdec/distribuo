@@ -1,2 +1,2 @@
 = sts.card :distribuo_admin_apps_releases, title: t('.releases'), icon: 'fad fa-ship', content_padding: false, menu: distribuo_app_releases_menu do |card|
-  = card.table 'distribuo/releases', parameters: {app_id: @app.id}, custom_views: true
+  = card.with_table'distribuo/releases', parameters: {app_id: @app.id}, custom_views: true
