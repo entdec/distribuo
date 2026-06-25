@@ -5,7 +5,7 @@ require_dependency 'concerns/distribuo/respond'
 
 module Distribuo
   class ApplicationAdminController < ApplicationController
-    include Pundit
+    include Pundit::Authorization
     include Respond
     include Distribuo.config.admin_authentication_module.constantize if Distribuo.config.admin_authentication_module
   end
