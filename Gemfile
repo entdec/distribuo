@@ -23,3 +23,7 @@ gem "mensa", entdec: "mensa"
 
 gem "sprockets-rails"
 gem "slim-rails"
+
+source "https://rubygems.pkg.github.com/entdec" do
+  gem "shipkit"
+end

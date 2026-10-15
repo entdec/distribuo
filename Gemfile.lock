@@ -394,6 +394,11 @@ GEM
       yard (~> 0.9)
     zeitwerk (2.8.3)
 
+GEM
+  remote: https://rubygems.pkg.github.com/entdec/
+  specs:
+    shipkit (0.1.2)
+
 PLATFORMS
   ruby
 
@@ -402,6 +407,7 @@ DEPENDENCIES
   distribuo!
   mensa!
   pry
+  shipkit!
   slim-rails
   solargraph
   sprockets-rails

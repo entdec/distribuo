@@ -58,6 +58,10 @@ class DistribuoTablesTest < ActiveSupport::TestCase
   end
 
   test 'Mensa verifies populated tables and both scoped branches' do
+    # Equal timestamps exercise stable ordering and the last page, too.
+    now = Time.current
+    Distribuo::App.insert_all!(30.times.map { |i| {id: SecureRandom.uuid, name: "Page app #{i}", created_at: now, updated_at: now} })
+    Distribuo::Release.insert_all!(30.times.map { |i| {id: SecureRandom.uuid, app_id: @app.id, position: i + 3, version: "3.#{i}", created_at: now, updated_at: now} })
     [:en, :nl].each do |locale|
       I18n.with_locale(locale) do
         assert_mensa_table_valid Distribuo::AppsTable, user: @user, strict: true
