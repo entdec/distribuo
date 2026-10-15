@@ -33,4 +33,5 @@ task default: :test
 
 # Adds the Auxilium semver task
 spec = Gem::Specification.find_by_name 'auxilium'
-load "#{spec.gem_dir}/lib/tasks/semver.rake"
+semver_tasks = "#{spec.gem_dir}/lib/tasks/semver.rake"
+load semver_tasks if File.exist?(semver_tasks)

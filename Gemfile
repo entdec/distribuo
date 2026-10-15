@@ -17,3 +17,9 @@ gemspec
 gem 'pry'
 
 gem 'solargraph'
+
+git_source(:entdec) { |repo| "git@github.com:entdec/#{repo}.git" }
+gem "mensa", entdec: "mensa"
+
+gem "sprockets-rails"
+gem "slim-rails"

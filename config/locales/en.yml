@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    models:
+      distribuo/app:
+        one: App
+        other: Apps
+      distribuo/release:
+        one: Release
+        other: Releases
+    attributes:
+      distribuo/app:
+        icon: Icon
+        name: Name
+        release_type: Release type
+        operating_system: Operating system
+        created_at: Created at
+      distribuo/release:
+        release: Release
+        bundle_id: Bundle ID
+        version: Version
+        build_number: Build number
+        unique_downloads: Unique downloads
+        total_downloads: Total downloads
+        created_at: Created at

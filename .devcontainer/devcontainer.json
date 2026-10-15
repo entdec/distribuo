@@ -1,0 +1,34 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ruby-rails-postgres
+{
+    "name": "distribuo",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "features": {
+        "ghcr.io/devcontainers/features/node:2": {},
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": false,
+            "installOhMyZshConfig": false
+        },
+        "ghcr.io/rails/devcontainer/features/activestorage": {},
+        "ghcr.io/rails/devcontainer/features/postgres-client": {
+            "version": "18"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "moby": false
+        }
+    },
+    "mounts": [
+        "source=/run/host-services/ssh-auth.sock,target=/ssh-agent,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
+    ],
+    "postStartCommand": ".devcontainer/postStart.sh",
+    "containerEnv": {
+        "VISUAL": "vi",
+        "SSH_AUTH_SOCK": "/ssh-agent"
+    },
+    "customizations": {},
+    "workspaceFolder": "/workspaces/distribuo"
+}

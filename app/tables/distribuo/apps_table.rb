@@ -4,25 +4,34 @@ module Distribuo
   class AppsTable < ApplicationTable
     model Distribuo::App
 
-    column(:icon) do |app|
-      app.icon.attached? ? image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [20, 20]))) : ''
+    supports_custom_views true
+    show_header true
+    exportable true
+
+    internal :id
+
+    column(:icon) do
+      render do
+        html do |app|
+          app.icon.attached? ? image_tag(main_app.url_for(app.icon.variant(resize_to_limit: [20, 20]))) : ''
+        end
+        csv { |_app| '' }
+      end
     end
     column(:name)
     column(:release_type)
-    column(:operating_system)
+    column(:operating_system) do
+      filter do
+        collection -> { Distribuo::App::OPERATING_SYSTEMS }
+      end
+    end
     column(:created_at)
 
-    filter(:platform)
+    order created_at: :desc, id: :desc
+    link { |app| distribuo.admin_app_path(app.id) }
 
-    initial_order :created_at, :desc
-
-    row_link { |app| distribuo.admin_app_path(app) }
-
-    private
-
-    def scope
-      @scope = App.all
-      @scope
+    scope do
+      Distribuo::App.all.with_attached_icon
     end
   end
 end

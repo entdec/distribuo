@@ -1,6 +1,7 @@
 require 'acts_as_list'
 require 'app_parser'
 require 'pundit'
+require 'mensa'
 
 require 'distribuo/engine'
 require 'distribuo/configuration'

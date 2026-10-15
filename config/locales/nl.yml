@@ -1,0 +1,30 @@
+nl:
+  time:
+    formats:
+      long: "%d-%m-%Y %H:%M"
+  date:
+    formats:
+      long: "%d-%m-%Y"
+  activerecord:
+    models:
+      distribuo/app:
+        one: App
+        other: Apps
+      distribuo/release:
+        one: Uitgave
+        other: Uitgaven
+    attributes:
+      distribuo/app:
+        icon: Pictogram
+        name: Naam
+        release_type: Type uitgave
+        operating_system: Besturingssysteem
+        created_at: Aangemaakt op
+      distribuo/release:
+        release: Uitgave
+        bundle_id: Bundel-ID
+        version: Versie
+        build_number: Buildnummer
+        unique_downloads: Unieke downloads
+        total_downloads: Totaal aantal downloads
+        created_at: Aangemaakt op
