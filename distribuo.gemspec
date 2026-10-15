@@ -20,8 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'acts_as_list'
   spec.add_dependency 'app_parser'
-  # app_parser 0.1 uses the Rubyzip 2 extraction API.
-  spec.add_dependency 'rubyzip', '~> 2.3'
+  spec.add_dependency 'rubyzip', '~> 3.0'
   spec.add_dependency 'image_processing'
   spec.add_dependency 'mensa'
   spec.add_dependency 'pg'

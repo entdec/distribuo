@@ -3,6 +3,7 @@ require 'app_parser'
 require 'pundit'
 require 'mensa'
 
+require 'distribuo/package_parser'
 require 'distribuo/engine'
 require 'distribuo/configuration'
 require 'distribuo/active_record_helpers'

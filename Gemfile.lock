@@ -17,7 +17,7 @@ GIT
 PATH
   remote: .
   specs:
-    distribuo (0.1.18)
+    distribuo (0.2.0)
       acts_as_list
       app_parser
       image_processing
@@ -25,7 +25,7 @@ PATH
       pg
       pundit
       rails (>= 7.1)
-      rubyzip (~> 2.3)
+      rubyzip (~> 3.0)
 
 GEM
   remote: https://rubygems.org/
@@ -306,7 +306,7 @@ GEM
     ruby-progressbar (1.13.0)
     ruby_android (0.7.7)
       rubyzip (>= 1.1.6)
-    rubyzip (2.4.1)
+    rubyzip (3.7.0)
     securerandom (0.4.1)
     slim (5.2.2)
       temple (~> 0.10.0)

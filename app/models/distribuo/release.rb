@@ -32,7 +32,7 @@ module Distribuo
         f.write build_upload.read.force_encoding('utf-8')
         attachment_changes['build'].attachable.rewind
 
-        ipa = AppParser.parse(f.path)
+        ipa = Distribuo::PackageParser.parse(f.path)
 
         updates = {}
         updates[:build_number] = ipa.version unless build_number.present?
